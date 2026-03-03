@@ -6,3 +6,4 @@
 
 构建系统：使用 CMake 来配置和管理项目构建环境。
 
+<img width="501" height="420" alt="Desktop Screenshot 2026 03 03 - 10 23 59 03" src="https://github.com/user-attachments/assets/960488b6-ebd7-44ce-9ec5-eb6548ef03b1" />
