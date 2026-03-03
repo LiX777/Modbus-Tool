@@ -1,0 +1,692 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>908</width>
+    <height>654</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>RS485 Serial Tool</string>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <layout class="QVBoxLayout" name="verticalLayout_4" stretch="1,3,8,1">
+    <item>
+     <widget class="QFrame" name="frame_4">
+      <property name="frameShape">
+       <enum>QFrame::Box</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_6" stretch="4,2,5,3">
+       <property name="spacing">
+        <number>10</number>
+       </property>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_4">
+         <property name="spacing">
+          <number>15</number>
+         </property>
+         <property name="rightMargin">
+          <number>5</number>
+         </property>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_3" stretch="1,4">
+           <property name="spacing">
+            <number>5</number>
+           </property>
+           <item>
+            <widget class="QLabel" name="label">
+             <property name="text">
+              <string>Port:</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QComboBox" name="comboBoxPort"/>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <widget class="QPushButton" name="pushButtonRefresh">
+           <property name="toolTip">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;刷新端口列表&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+           <property name="text">
+            <string>刷新</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="1,1">
+         <property name="spacing">
+          <number>2</number>
+         </property>
+         <item>
+          <widget class="QLabel" name="label_2">
+           <property name="text">
+            <string>Baud Rate:</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QComboBox" name="comboBoxBaudRate"/>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <spacer name="horizontalSpacer_2">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>439</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_5">
+         <item>
+          <widget class="QPushButton" name="pushButtonConnect">
+           <property name="text">
+            <string>连 接</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="pushButtonDisconnect">
+           <property name="text">
+            <string>断 开</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="Line" name="line_2">
+           <property name="frameShadow">
+            <enum>QFrame::Raised</enum>
+           </property>
+           <property name="lineWidth">
+            <number>2</number>
+           </property>
+           <property name="midLineWidth">
+            <number>1</number>
+           </property>
+           <property name="orientation">
+            <enum>Qt::Vertical</enum>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="pushButtonClear">
+           <property name="toolTip">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;清除打印区数据&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+           <property name="text">
+            <string>清 除</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item>
+     <widget class="QFrame" name="frame_3">
+      <property name="frameShape">
+       <enum>QFrame::Box</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <property name="lineWidth">
+       <number>2</number>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_3">
+       <item>
+        <widget class="QTextEdit" name="textEditLog"/>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item>
+     <widget class="QFrame" name="frame_2">
+      <property name="frameShape">
+       <enum>QFrame::Box</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <property name="lineWidth">
+       <number>2</number>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout">
+       <item>
+        <widget class="QLabel" name="label_5">
+         <property name="layoutDirection">
+          <enum>Qt::LeftToRight</enum>
+         </property>
+         <property name="text">
+          <string>RMUP - 500 模块</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QTableWidget" name="tableWidget">
+         <property name="frameShape">
+          <enum>QFrame::NoFrame</enum>
+         </property>
+         <property name="showGrid">
+          <bool>true</bool>
+         </property>
+         <property name="gridStyle">
+          <enum>Qt::SolidLine</enum>
+         </property>
+         <row>
+          <property name="text">
+           <string>0</string>
+          </property>
+         </row>
+         <row>
+          <property name="text">
+           <string>1</string>
+          </property>
+         </row>
+         <row>
+          <property name="text">
+           <string>2</string>
+          </property>
+         </row>
+         <row>
+          <property name="text">
+           <string>3</string>
+          </property>
+         </row>
+         <row>
+          <property name="text">
+           <string>4</string>
+          </property>
+         </row>
+         <row>
+          <property name="text">
+           <string>5</string>
+          </property>
+         </row>
+         <row>
+          <property name="text">
+           <string>6</string>
+          </property>
+         </row>
+         <row>
+          <property name="text">
+           <string>7</string>
+          </property>
+         </row>
+         <row>
+          <property name="text">
+           <string>8</string>
+          </property>
+         </row>
+         <row>
+          <property name="text">
+           <string>9</string>
+          </property>
+         </row>
+         <column>
+          <property name="text">
+           <string>Alias</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>00040</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>Alias</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>00050</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>Alias</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>00060</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>Alias</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>00070</string>
+          </property>
+         </column>
+         <item row="0" column="0">
+          <property name="text">
+           <string>报警</string>
+          </property>
+         </item>
+         <item row="0" column="1">
+          <property name="text">
+           <string/>
+          </property>
+         </item>
+         <item row="0" column="2">
+          <property name="text">
+           <string>压机停机温度</string>
+          </property>
+         </item>
+         <item row="0" column="3">
+          <property name="text">
+           <string/>
+          </property>
+         </item>
+         <item row="0" column="4">
+          <property name="text">
+           <string>系统启停方式</string>
+          </property>
+         </item>
+         <item row="0" column="6">
+          <property name="text">
+           <string>PID使能</string>
+          </property>
+         </item>
+         <item row="1" column="0">
+          <property name="text">
+           <string>加热</string>
+          </property>
+         </item>
+         <item row="1" column="2">
+          <property name="text">
+           <string>跟随温度</string>
+          </property>
+         </item>
+         <item row="1" column="3">
+          <property name="text">
+           <string/>
+          </property>
+         </item>
+         <item row="1" column="4">
+          <property name="text">
+           <string>D11输入作用</string>
+          </property>
+         </item>
+         <item row="1" column="5">
+          <property name="text">
+           <string/>
+          </property>
+         </item>
+         <item row="1" column="6">
+          <property name="text">
+           <string>PID输出周期</string>
+          </property>
+         </item>
+         <item row="2" column="0">
+          <property name="text">
+           <string>压机</string>
+          </property>
+         </item>
+         <item row="2" column="1">
+          <property name="text">
+           <string/>
+          </property>
+         </item>
+         <item row="2" column="2">
+          <property name="text">
+           <string>来电停方式</string>
+          </property>
+         </item>
+         <item row="2" column="3">
+          <property name="text">
+           <string/>
+          </property>
+         </item>
+         <item row="2" column="4">
+          <property name="text">
+           <string>D11开关类型</string>
+          </property>
+         </item>
+         <item row="2" column="5">
+          <property name="text">
+           <string/>
+          </property>
+         </item>
+         <item row="2" column="6">
+          <property name="text">
+           <string>PID积分周期</string>
+          </property>
+         </item>
+         <item row="2" column="7">
+          <property name="text">
+           <string/>
+          </property>
+         </item>
+         <item row="3" column="0">
+          <property name="text">
+           <string>热</string>
+          </property>
+         </item>
+         <item row="3" column="1">
+          <property name="text">
+           <string/>
+          </property>
+         </item>
+         <item row="3" column="2">
+          <property name="text">
+           <string>温度上限报警</string>
+          </property>
+         </item>
+         <item row="3" column="3">
+          <property name="text">
+           <string/>
+          </property>
+         </item>
+         <item row="3" column="4">
+          <property name="text">
+           <string>模式选择</string>
+          </property>
+         </item>
+         <item row="3" column="5">
+          <property name="text">
+           <string/>
+          </property>
+         </item>
+         <item row="3" column="6">
+          <property name="text">
+           <string>PID-KP</string>
+          </property>
+         </item>
+         <item row="3" column="7">
+          <property name="text">
+           <string/>
+          </property>
+         </item>
+         <item row="4" column="0">
+          <property name="text">
+           <string>冷</string>
+          </property>
+         </item>
+         <item row="4" column="1">
+          <property name="text">
+           <string/>
+          </property>
+         </item>
+         <item row="4" column="2">
+          <property name="text">
+           <string>温度下限报警</string>
+          </property>
+         </item>
+         <item row="4" column="3">
+          <property name="text">
+           <string/>
+          </property>
+         </item>
+         <item row="4" column="4">
+          <property name="text">
+           <string>机型选择</string>
+          </property>
+         </item>
+         <item row="4" column="5">
+          <property name="text">
+           <string/>
+          </property>
+         </item>
+         <item row="4" column="6">
+          <property name="text">
+           <string>PID-KI</string>
+          </property>
+         </item>
+         <item row="4" column="7">
+          <property name="text">
+           <string/>
+          </property>
+         </item>
+         <item row="5" column="0">
+          <property name="text">
+           <string/>
+          </property>
+         </item>
+         <item row="5" column="2">
+          <property name="text">
+           <string>温流下限报警</string>
+          </property>
+         </item>
+         <item row="5" column="4">
+          <property name="text">
+           <string>温度上限跟随</string>
+          </property>
+         </item>
+         <item row="5" column="6">
+          <property name="text">
+           <string>PID-KD</string>
+          </property>
+         </item>
+         <item row="6" column="2">
+          <property name="text">
+           <string>温量开关类型</string>
+          </property>
+         </item>
+         <item row="6" column="4">
+          <property name="text">
+           <string>温度下限跟随</string>
+          </property>
+         </item>
+         <item row="6" column="6">
+          <property name="text">
+           <string>温度传感器选择</string>
+          </property>
+         </item>
+         <item row="7" column="0">
+          <property name="text">
+           <string>设定温度</string>
+          </property>
+         </item>
+         <item row="7" column="2">
+          <property name="text">
+           <string>报警输出类型</string>
+          </property>
+         </item>
+         <item row="7" column="4">
+          <property name="text">
+           <string>待机防冻使能</string>
+          </property>
+         </item>
+         <item row="7" column="6">
+          <property name="text">
+           <string>流量传感器选择</string>
+          </property>
+         </item>
+         <item row="8" column="0">
+          <property name="text">
+           <string>加热回差</string>
+          </property>
+         </item>
+         <item row="8" column="2">
+          <property name="text">
+           <string>流量检测延时</string>
+          </property>
+         </item>
+         <item row="8" column="4">
+          <property name="text">
+           <string>恒温停机温差</string>
+          </property>
+         </item>
+         <item row="8" column="6">
+          <property name="text">
+           <string>流量传感器系数</string>
+          </property>
+         </item>
+         <item row="9" column="0">
+          <property name="text">
+           <string>压机启动温差</string>
+          </property>
+         </item>
+         <item row="9" column="2">
+          <property name="text">
+           <string>压机频启延时</string>
+          </property>
+         </item>
+         <item row="9" column="4">
+          <property name="text">
+           <string>状态转换延时</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_10" stretch="2,3,8,6">
+         <item>
+          <widget class="QLabel" name="label_6">
+           <property name="text">
+            <string>Slave Address:</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="lineEditAddr"/>
+         </item>
+         <item>
+          <spacer name="horizontalSpacer">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_8">
+           <item>
+            <widget class="QPushButton" name="pushButtonSend_2">
+             <property name="text">
+              <string>发 送</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="pushButtonRead">
+             <property name="text">
+              <string>读 取</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="Line" name="line">
+             <property name="frameShadow">
+              <enum>QFrame::Raised</enum>
+             </property>
+             <property name="lineWidth">
+              <number>2</number>
+             </property>
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="pushButtonClear_2">
+             <property name="toolTip">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;清除表中数据&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
+             <property name="text">
+              <string>清 空</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item>
+     <widget class="QFrame" name="frame">
+      <property name="frameShape">
+       <enum>QFrame::Box</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <property name="lineWidth">
+       <number>2</number>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_2">
+       <item>
+        <widget class="QLabel" name="label_4">
+         <property name="text">
+          <string>简易串口收发模块</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignBottom|Qt::AlignHCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_7">
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout">
+           <item>
+            <widget class="QLabel" name="label_3">
+             <property name="text">
+              <string>Send:</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="lineEditSend"/>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <widget class="QPushButton" name="pushButtonSend">
+           <property name="text">
+            <string>Send</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
